@@ -76,13 +76,13 @@ class Cargo(admin.ModelAdmin):
     list_display = (
         'id',
         'nome',
-        'renmuneracao'
+        'remuneracao'
     )
-    list_display_links = ('id', 'nome')
+    list_display_links = ('id', 'nome', 'remuneracao')
     search_fields = (
         'id',
         'nome',
-        'renmuneracao'
+        'remuneracao'
     )
 
 
