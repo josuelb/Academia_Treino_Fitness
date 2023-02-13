@@ -5,7 +5,18 @@ from .models import *
 
 @admin.register(Cliente)
 class Cliente(admin.ModelAdmin):
-    list_display = '__all__'
+    list_display = (
+        'id',
+        'nome',
+        'user',
+        'cpf',
+        'rg',
+        'email',
+        'password',
+        'situacao',
+        'plano',
+        'objetivo'
+    )
     list_display_links = (
         'id',
         'nome',
@@ -14,12 +25,32 @@ class Cliente(admin.ModelAdmin):
         'rg',
         'email'
     )
-    search_fields = '__all__'
+    search_fields = (
+        'id',
+        'nome',
+        'user',
+        'cpf',
+        'rg',
+        'email',
+        'password',
+        'situacao',
+        'plano',
+        'objetivo'
+    )
 
 
 @admin.register(Funcionario)
 class Funcionario(admin.ModelAdmin):
-    list_display = '__all__'
+    list_display = (
+        'id',
+        'nome',
+        'user',
+        'cpf',
+        'rg',
+        'email',
+        'password',
+        'cargo'
+    )
     list_display_links = (
         'id',
         'nome',
@@ -28,18 +59,35 @@ class Funcionario(admin.ModelAdmin):
         'rg',
         'email'
     )
-    search_fields = '__all__'
+    search_fields = (
+        'id',
+        'nome',
+        'user',
+        'cpf',
+        'rg',
+        'email',
+        'password',
+        'cargo'
+    )
 
 
 @admin.register(Cargo)
 class Cargo(admin.ModelAdmin):
-    list_display = '__all__'
-    list_display_links = '__all__'
-    search_fields = '__all__'
+    list_display = (
+        'id',
+        'nome',
+        'renmuneracao'
+    )
+    list_display_links = ('id', 'nome')
+    search_fields = (
+        'id',
+        'nome',
+        'renmuneracao'
+    )
 
 
 @admin.register(Plano)
 class Plano(admin.ModelAdmin):
-    list_display = '__all__'
-    list_display_links = '__all__'
-    search_fields = '__all__'
+    list_display = ('id', 'plano', 'valor')
+    list_display_links = ('id',)
+    search_fields = ('id', 'plano', 'valor')
