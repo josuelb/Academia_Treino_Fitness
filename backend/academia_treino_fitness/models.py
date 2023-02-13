@@ -37,7 +37,7 @@ class Plano(models.Model):
 class Cliente(Pessoa):
     user = models.CharField(max_length=50, null=False, unique=True)
     email = models.EmailField(null=False)
-    password = models.CharField(null=False)
+    password = models.CharField(max_length=25, null=False)
     situacao = models.CharField(max_length=7, null=False)
     plano = models.ForeignKey(Plano, on_delete=models.CASCADE, default='Mensal')
     objetivo = models.CharField(max_length=100)
@@ -46,6 +46,6 @@ class Cliente(Pessoa):
 class Funcionario(Pessoa):
     user = models.CharField(max_length=50, null=False, unique=True)
     email = models.EmailField(null=False)
-    password = models.CharField(null=False)
+    password = models.CharField(max_length=25, null=False)
     cargo = models.ForeignKey(Cargo, on_delete=models.CASCADE, default=None)
 
