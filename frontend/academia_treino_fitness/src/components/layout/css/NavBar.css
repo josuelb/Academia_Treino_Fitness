@@ -1,0 +1,33 @@
+@charset "UTF-8";
+
+nav{
+    text-align: center;
+    height: 20vh;
+    background-color: #015958;
+}
+
+.container_nav{
+    width: 70vw;
+    margin: auto;
+}
+
+.container_title{
+    padding-top: 20px;
+}
+.container_title h1{
+    color: white;
+    text-shadow: 4px 5px 2px black;
+}
+
+ul{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+li{
+    border: 1px solid white;
+    list-style-type: none;
+    color: white;
+    padding: 4px;
+}

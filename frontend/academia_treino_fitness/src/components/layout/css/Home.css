@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+.container_home{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.container_title_home{
+    padding-top: 40px;
+}
