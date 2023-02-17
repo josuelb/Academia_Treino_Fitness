@@ -19,5 +19,7 @@ urlpatterns = [
     path('api/token/verify/', TokenVerifyView.as_view()),
     path('api/academia-treino-fitness/clientelist/', ClienteList.as_view(), name='Clientelist'),
     path('api/academia-treino-fitness/funcionariolist/', FuncionarioList.as_view(), name='FuncionarioList'),
-    path('api/academia-treino-fitness/', include(router.urls))
+    path('api/academia-treino-fitness/', include(router.urls)),
+    path('academia_treino_fitness/authentication/', Authentication, name='Authentication'),
+    path('academia_treino_fitness/create_user/', CreateUser, name="CreateUser")
 ]

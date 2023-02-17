@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+footer{
+    background-color: #015958;
+    color: white;
+    height: 5vh;
+    display: flex;
+    justify-content: center;
+    border-radius: 10px 10px 0 0;
+}
+
+p{
+    margin-top: 5px;
+}
+

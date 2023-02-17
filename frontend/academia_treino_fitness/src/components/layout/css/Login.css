@@ -1,0 +1,35 @@
+@charset "UTF-8";
+
+.box_login{
+    margin: 10px 0;
+    background-color: rgb(230, 230, 230);
+    min-height: 100vh;
+}
+
+.container_login_form{
+    min-height: 200px;
+    display: flex;
+    width: 90vw;
+    margin: auto;
+    border: 1px solid black;
+    background-color: #A9D9D0;
+    position: relative;
+    top: 20vh;
+}
+
+.form{margin:auto;}
+
+h3{
+    text-align: center;
+}
+
+.input{
+    border-radius: 10px;
+}
+
+button{
+    margin: 10px 0 0 0;
+    padding: 3px;
+    width: 100%;
+    border-radius: 10px;
+}

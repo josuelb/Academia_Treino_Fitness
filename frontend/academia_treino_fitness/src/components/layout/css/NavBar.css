@@ -4,6 +4,7 @@ nav{
     text-align: center;
     height: 20vh;
     background-color: #015958;
+    border-radius: 0 0 10px 10px;
 }
 
 .container_nav{
@@ -19,15 +20,27 @@ nav{
     text-shadow: 4px 5px 2px black;
 }
 
-ul{
+.container_span{
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+}
+
+span{
+    color: white;
+    cursor: pointer;
+}
+
+menu{
+    display: none;
 }
 
 li{
+    margin: 4px;
     border: 1px solid white;
     list-style-type: none;
     color: white;
     padding: 4px;
+}
+
+li:hover{
+    box-shadow: 0 0 3px 2px black;
 }
