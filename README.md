@@ -12,4 +12,4 @@
 
 # Requisitos
     . Ter o **Python 3.+** instalado na maquina;
-    . Executar o arquivo __.sh__.
+    . Executar o arquivo __sh__.
