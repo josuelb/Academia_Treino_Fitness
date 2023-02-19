@@ -30,15 +30,21 @@ class FuncionarioView(viewsets.ModelViewSet):
     serializer_class = FuncionarioSerializer
 
 
-class CargoView(viewsets.ModelViewSet):
-    queryset = Cargo.objects.all()
+class CargoView(ListAPIView):
     serializer_class = CargoSerializer
 
+    def get_queryset(self):
+        queryset = Cargo.objects.all()
+        return queryset
 
-class PlanoView(viewsets.ModelViewSet):
-    queryset = Plano.objects.all()
+
+class PlanoView(ListAPIView):
     serializer_class = PlanoSerializer
 
+    def get_queryset(self):
+        queryset = Plano.objects.all()
+        return queryset   
+    
 
 class ClienteList(ListAPIView):
     permission_classes = (IsAuthenticated,)
@@ -88,17 +94,32 @@ def Authentication(request):
 
 # Para criar um usuário novo
 @csrf_exempt
-def CreateUser(request):
+def CreateUser(self, request, *args, **kwargs):
     if request.method == "GET":
         pass
     elif request.method == "POST":
-        username = json.loads(request.body)["username"]
-        password = json.loads(request.body)["password"]
-        type = json.loads(request.body)["type"]
+        dado = json.loads(request.body)
 
-        user = User.objects.create_user(username=username, password=password)
-        user.save()
+        if dado['type'][0] == "Cliente":
+            data = {
+                "nome": dado["nome"],
+                "sobrenome": dado["sobrenome"],
+                "data_nasc": dado['data_nasc'],
+                "cpf": dado["cpf"],
+                "rg": dado['rg'],
+                "user": dado['user'],
+                "email": dado['email'],
+                "password": dado['password'],
+                "situacao": dado["situacao"],
+                "objetivo": dado['objetivo'],
+                "plano": dado['plano']
+            }
+            data = json.dumps(data)
 
-        assign_role(user, type)
+            self.create(request=data, *args, **kwargs)
 
-        return HttpResponse('Usuário salvo com sucesso')
+            user = User.objects.create_user(username=dado['user'], password=dado['password'])
+            user.save()
+
+            assign_role(user, dado['type'][1])
+            return HttpResponse('Usuário salvo com sucesso')

@@ -10,8 +10,6 @@ from .views import *
 router = routers.DefaultRouter()
 router.register(r'clientes', ClienteView, basename='APIClientes')
 router.register(r'funcionarios', FuncionarioView, basename='APIFuncionarios')
-router.register(r'cargos', CargoView, basename='APICargos')
-router.register(r'planos', PlanoView, basename='APIPlanos')
 
 urlpatterns = [
     path('api/token/', TokenObtainPairView.as_view()),
@@ -19,7 +17,9 @@ urlpatterns = [
     path('api/token/verify/', TokenVerifyView.as_view()),
     path('api/academia-treino-fitness/clientelist/', ClienteList.as_view(), name='Clientelist'),
     path('api/academia-treino-fitness/funcionariolist/', FuncionarioList.as_view(), name='FuncionarioList'),
+    path('api/academia-treino-fitness/cargos/', CargoView.as_view(), name='cargos'),
+    path('api/academia-treino-fitness/planos/', PlanoView.as_view(), name='planos'),
     path('api/academia-treino-fitness/', include(router.urls)),
-    path('academia_treino_fitness/authentication/', Authentication, name='Authentication'),
-    path('academia_treino_fitness/create_user/', CreateUser, name="CreateUser")
+    path('api/academia-treino-fitness/authentication/', Authentication, name='Authentication'),
+    path('api/academia-treino-fitness/create_user/', CreateUser, name="CreateUser")
 ]
