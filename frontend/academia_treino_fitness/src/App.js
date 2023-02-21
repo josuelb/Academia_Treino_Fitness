@@ -1,6 +1,6 @@
 import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { Context } from './Context';
 
 import NavBar from './components/layout/NavBar';
@@ -12,6 +12,7 @@ import Login from './components/layout/Login';
 
 function App() {
   const {login} = useContext(Context)
+  
 
   return (
     <Router>

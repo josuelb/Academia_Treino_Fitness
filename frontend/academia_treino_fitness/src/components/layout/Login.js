@@ -1,12 +1,26 @@
 import './css/Login.css'
 import img from '../../musculacao-holdfit.webp'
+import { FetchAuthentication } from '../../bd/Fetch'
+import { useContext, useEffect } from 'react'
+import { Context } from '../../Context'
+import { Navigate } from 'react-router-dom'
 
 
 function Login(){
+    const { login } = useContext(Context)
+
     const Enviar = ()=>{
+        let dado = {
+            username: document.getElementById('user').value,
+            password: document.getElementById('password').value
+        }
 
-        fetch('http://127.0.0.1:8000/')
+        FetchAuthentication(dado)
 
+        if (FetchAuthentication(dado) === 'Usuário ou senha incorreta'){
+            let alert = document.getElementById('alert')
+            alert.innerHTML += `<p>${FetchAuthentication(dado)}</p>`
+        }
     }
 
     return(
@@ -25,7 +39,7 @@ function Login(){
                         <label for='password'>Password:</label>
                     </p>
                     <input type='password' id='password' name='password' class="input" required></input><br></br>
-                    <div class='erro'>
+                    <div class='alert'>
 
                     </div>
                     <button onClick={Enviar}>Enviar</button>
